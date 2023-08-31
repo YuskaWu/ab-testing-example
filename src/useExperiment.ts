@@ -42,7 +42,10 @@ export default function useExperiment(name: ExperimentName) {
   }
 
   // @ts-ignore
-  window.dataLayer.push({ experiment: `exp.${name}.${variant}` })
+  window.dataLayer.push({
+    event: 'experiment',
+    experimentName: `exp.${name}.${variant}`,
+  })
 
   // 送 GTM datalayer event 給 GA4
   // window.dataLayer.push({
