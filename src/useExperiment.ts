@@ -3,7 +3,7 @@ import { useCookies } from '@vueuse/integrations/useCookies'
 const experiments = {
   'course-page-mobile-layout': {
     // 是否要啟用實驗
-    enabled: false,
+    enabled: true,
     // 有哪些變體
     variants: ['original', 'v1'],
     // 實驗 disabled 後，預設使用的變體
