@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/integrations": "^10.4.1",
+    "universal-cookie": "^6.1.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {

@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
+import useExperiment from './useExperiment';
+
+
+const variant = useExperiment('course-page-mobile-layout')
+
 </script>
 
 <template>
@@ -12,6 +17,11 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+
+  <div>
+    <button v-if="variant === 'original'" class="btn" >checkout</button>
+    <button v-else-if="variant === 'v1'" class="btn--v1" >checkout</button>
+  </div>
 </template>
 
 <style scoped>
@@ -26,5 +36,15 @@ import HelloWorld from './components/HelloWorld.vue'
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+button {
+  color: white;
+}
+.btn {
+  background-color: blue;
+}
+.btn--v1 {
+  background-color: red;
 }
 </style>
