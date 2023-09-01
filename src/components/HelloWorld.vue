@@ -4,7 +4,6 @@ import { ref } from 'vue';
 defineProps<{ msg: string }>()
 
 const vwoCount = ref(0)
-const convertCount = ref(0)
 const zohoCount = ref(0)
 </script>
 
@@ -12,9 +11,8 @@ const zohoCount = ref(0)
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="vwoCount++">VWO count is {{ vwoCount }}</button><br>
-    <button type="button" @click="convertCount++">Convert count is {{ convertCount }}</button><br>
-    <button type="button" @click="zohoCount++">Zoho count is {{ zohoCount }}</button>
+    <button type="button" @click="vwoCount++">VWO count is {{ vwoCount }}</button><br><br>
+    <button type="button" @click="zohoCount++">Zoho count is {{ zohoCount }}</button><br><br>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
