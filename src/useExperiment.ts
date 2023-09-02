@@ -2,11 +2,8 @@ import { useCookies } from '@vueuse/integrations/useCookies'
 
 const experiments = {
   'course-page-mobile-layout': {
-    // 是否要啟用實驗
     enabled: true,
-    // 有哪些變體
     variants: ['original', 'v1'],
-    // 實驗 disabled 後，預設使用的變體
     default: 'original',
   },
   'course-page-cta-color': {
@@ -21,12 +18,10 @@ type ExperimentName = keyof typeof experiments
 export default function useExperiment(name: ExperimentName) {
   const exp = experiments[name]
 
-  // experiment name 不存在，返回預設 'original'
   if (!exp) {
     return 'original'
   }
 
-  // 先檢查該實驗是否被啟用，如果是 disabled，直接返回設定的預設值
   if (!exp.enabled) {
     return exp.default
   }
@@ -44,13 +39,8 @@ export default function useExperiment(name: ExperimentName) {
   // @ts-ignore
   window.dataLayer.push({
     event: 'experiment',
-    experimentName: `${name}.${variant}`,
+    experiment_id: `${name}.${variant}`,
   })
-
-  // 送 GTM datalayer event 給 GA4
-  // window.dataLayer.push({
-  //   event: `exp.${name}.${variant}`
-  // })
 
   return variant
 }
