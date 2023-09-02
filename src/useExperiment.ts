@@ -29,7 +29,6 @@ export default function useExperiment(name: ExperimentName) {
   const cookies = useCookies()
 
   let variant = cookies.get(`exp.${name}`)
-  // 新使用者，還沒設定過 variant
   if (!variant) {
     const randomVariantIndex = Math.floor(Math.random() * exp.variants.length)
     variant = exp.variants[randomVariantIndex]
